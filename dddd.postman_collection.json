@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "ef1ca0c2-a000-46a8-9f11-51b5de431053",
+		"name": "dddd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://aadminn.000webhostapp.com/insert.php?name=namee&grade=gradee&age=agee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://aadminn.000webhostapp.com/insert.php?name=namee&grade=gradee&age=agee",
+					"protocol": "http",
+					"host": [
+						"aadminn",
+						"000webhostapp",
+						"com"
+					],
+					"path": [
+						"insert.php"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "namee"
+						},
+						{
+							"key": "grade",
+							"value": "gradee"
+						},
+						{
+							"key": "age",
+							"value": "agee"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

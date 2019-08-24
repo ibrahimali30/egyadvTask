@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "59146009-ea91-4e44-b5c8-a0a87c7f1d1e",
+		"name": "Test Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://cpanels.shop/testTask/api/LoginUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://cpanels.shop/testTask/api/LoginUser",
+					"protocol": "https",
+					"host": [
+						"cpanels",
+						"shop"
+					],
+					"path": [
+						"testTask",
+						"api",
+						"LoginUser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
