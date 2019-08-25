@@ -7,11 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginActivity">
 
-
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:background="@drawable/login_background_shape"
         app:layout_constraintCircleRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,8 +20,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/ic_logo"
@@ -38,33 +37,30 @@
         android:id="@+id/emailEditTextlayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_margin="32dp"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:cardCornerRadius="24dp">
+        app:layout_constraintTop_toBottomOf="@+id/view">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginStart="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:hint="E-mail / Mobile"
             android:inputType="textEmailAddress">
 
-            <EditText
-                android:drawablePadding="16dp"
-                android:background="@null"
-                android:layout_marginStart="16dp"
-                android:drawableStart="@drawable/ic_email_black_24dp"
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:drawablePadding="16dp"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -72,36 +68,96 @@
         android:id="@+id/passwordEditTextlayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_margin="32dp"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditTextlayout"
-        app:cardCornerRadius="24dp">
+        app:layout_constraintTop_toBottomOf="@+id/emailEditTextlayout">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginStart="8dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPassword"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:drawablePadding="16dp"
-                android:background="@null"
-                android:layout_marginStart="16dp"
-                android:drawableStart="@drawable/ic_vpn_key_black_24dp"
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:background="@null"
+                android:drawableStart="@drawable/ic_vpn_key_black_24dp"
+                android:drawablePadding="16dp"
+                android:inputType="textPassword"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-
-
     </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="forget password ?"
+        app:layout_constraintEnd_toEndOf="@+id/passwordEditTextlayout"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextlayout" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="44dp"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="@+id/view" />
+
+
+    <Button
+        android:onClick="logIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/custom_color"
+        android:text="LOGIN"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditTextlayout" />
+
+
+    <LinearLayout
+        android:layout_marginBottom="32dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="don't have an account ? " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textColor="#DD2C00" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

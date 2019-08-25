@@ -1,46 +1,66 @@
 package com.ibrahim.egyadv_task.ui.login;
 
-import android.app.Activity;
-
-import androidx.lifecycle.Observer;
+import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ibrahim.egyadv_task.R;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements AuthListener {
+    private static final String TAG = "LoginActivity";
 
+    LoginActivityViewModel mViewModel;
 
+    //views
+    EditText emailET , passwordET ;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Window window = getWindow();
+        emailET = findViewById(R.id.emailEditText);
+        passwordET = findViewById(R.id.passwordEditText);
 
+        //transparent status bar
+        Window window = getWindow();
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         window.setStatusBarColor(Color.TRANSPARENT);
+
+        mViewModel = ViewModelProviders.of(this).get(LoginActivityViewModel.class);
+
+        mViewModel.setAuthListener(this);
+
+    }
+
+    public void logIn(View view) {
+        mViewModel.onLoginClicked(emailET.getText().toString() , passwordET.getText().toString());
+    }
+
+    @Override
+    public void onLoginStarted() {
+
+    }
+
+    @Override
+    public void onLoginSucess() {
+
+    }
+
+    @Override
+    public void onLoginFailed() {
 
     }
 }
