@@ -1,7 +1,8 @@
-package com.ibrahim.egyadv_task.data.remote;
+package com.ibrahim.egyadv_task.data.network;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -28,7 +29,8 @@ public class ApiManager {
                    .baseUrl("https://cpanels.shop/testTask/api/")
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create(gson))
-                    .build();
+                   .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                   .build();
         }
         return retrofitInstance;
     }
